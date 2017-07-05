@@ -10,7 +10,7 @@
 		UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
 		NSString     *text       = [command.arguments objectAtIndex:0];
 
-		[pasteboard setValue:text forPasteboardType:@"public.text"];
+		pasteboard.string = text; // https://github.com/VersoSolutions/CordovaClipboard/issues/26#issuecomment-247909487
 
 		CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:text];
 		[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
